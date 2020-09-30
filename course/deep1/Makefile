@@ -1,1 +1,1 @@
-../../../../container/image/jupyter/Makefile
+../../../../docker/image/jupyter/Makefile

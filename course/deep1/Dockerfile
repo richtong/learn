@@ -1,1 +1,1 @@
-../../../../container/image/jupyter/Dockerfile
+../../../../docker/image/jupyter/Dockerfile

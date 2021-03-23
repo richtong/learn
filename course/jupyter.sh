@@ -15,28 +15,27 @@ trap 'exit $?' ERR
 OPTIND=1
 VERSION="${VERSION:-7}"
 export FLAGS="${FLAGS:-""}"
-while getopts "hdvr" opt
-do
-    case "$opt" in
-        h)
-            cat <<-EOF
-Run Jupyter Tensorflow Notebook in current directory
-    usage: $SCRIPTNAME [ flags ]
-    flags: -d debug, -v verbose, -h help"
-EOF
-            exit 0
-            ;;
-        d)
-            export DEBUGGING=true
-            ;;
-        v)
-            export VERBOSE=true
-            # add the -v which works for many commands
-            export FLAGS+=" -v "
-            ;;
-    esac
+while getopts "hdvr" opt; do
+	case "$opt" in
+	h)
+		cat <<-EOF
+			Run Jupyter Tensorflow Notebook in current directory
+			    usage: $SCRIPTNAME [ flags ]
+			    flags: -d debug, -v verbose, -h help"
+		EOF
+		exit 0
+		;;
+	d)
+		export DEBUGGING=true
+		;;
+	v)
+		export VERBOSE=true
+		# add the -v which works for many commands
+		export FLAGS+=" -v "
+		;;
+	esac
 done
-shift $((OPTIND-1))
+shift $((OPTIND - 1))
 if [[ -e "$SCRIPT_DIR/include.sh" ]]; then source "$SCRIPT_DIR/include.sh"; fi
 
 # source lib-git.sh lib-mac.sh lib-install.sh

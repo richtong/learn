@@ -1,7 +1,7 @@
-## Deeplearning.ai Course 1 Neural Networks
+# Deeplearning.ai Course 1 Neural Networks
 
 The best instructions are on the Coursera site itself
-https://www.coursera.org/learn/neural-networks-deep-learning/discussions/all/threads/29j3DW9WEeiqiRKZ5Tzn-A/replies/jvhgGG9XEeie7g7c09Nfsg?sort=createdAtAsc&page=1
+[course](https://www.coursera.org/learn/neural-networks-deep-learning/discussions/all/threads/29j3DW9WEeiqiRKZ5Tzn-A/replies/jvhgGG9XEeie7g7c09Nfsg?sort=createdAtAsc&page=1)
 but hard hard to find.
 
 This uses a web-based Jupyter notebook, but instead of using that, we will use a
@@ -9,40 +9,42 @@ dockerized Jupyter notebook with iPython and numpy loaded.
 
 There are four ways to run this with open items, but only two seem to work righ
 now:
-1. Use 'brew install jupyter` to just get that installation and run `jupyter
+
+1. Use `brew install jupyter` to just get that installation and run `jupyter
    notebook`. Note that this default installation does not inlcude all the
-libraries, this is not complicated, you just need to `brew install` or `pip
-install` into the system python and jupyter picks it up.
+   libraries, this is not complicated, you just need to `brew install` or `pip
+   install` into the system python and jupyter picks it up.
 1. Take the copied homework and use it with a local python. On a Mac, this is as
    simple as `brew install python numpy` and you are more or less ready to go by
-running from the directory you will also need other utilities in particular you
-also need `matplotlib h5py scipy PIL`, but you don't see the actual notebook
-information. But this is good for simple REPL debugging
+   running from the directory you will also need other utilities in particular you
+   also need `matplotlib h5py scipy PIL`, but you don't see the actual notebook
+   information. But this is good for simple REPL debugging
 
 Here are the backup ways to do this:
-2. Use `brew install anaconda` which installs the /Applications/Anaconda
+
+1. Use `brew install anaconda` which installs the /Applications/Anaconda
    Navigator and from there you can start Jupyter notebook and navigate to the
-omework. When if comes time to submit your work, the `Submit Assignment` doesn't
-seem to get copied in the tar format, so you do have to manually copy your
-assignment code (which isn't bad, the code is short) over to the Coursera
-notebook and hit submit assignment, this generates the JSON that the grader uses
-in the next submission. The submission occurs after the notebook is done. When
-if comes time to submit your work, the `Submit Assignment` doesn't seem to get
-copied in the tar format, so you do have to manually copy your assignment code
-(which isn't bad, the code is short) over to the Coursera notebook and hit
-submit assignment, this generates the JSON that the grader uses in the next
-submission and this runs the grader automatically.
-3. Use the host-based thing at Cloudera, the problems are that you can't do this
+   omework. When if comes time to submit your work, the `Submit Assignment` doesn't
+   seem to get copied in the tar format, so you do have to manually copy your
+   assignment code (which isn't bad, the code is short) over to the Coursera
+   notebook and hit submit assignment, this generates the JSON that the grader uses
+   in the next submission. The submission occurs after the notebook is done. When
+   if comes time to submit your work, the `Submit Assignment` doesn't seem to get
+   copied in the tar format, so you do have to manually copy your assignment code
+   (which isn't bad, the code is short) over to the Coursera notebook and hit
+   submit assignment, this generates the JSON that the grader uses in the next
+   submission and this runs the grader automatically.
+1. Use the host-based thing at Cloudera, the problems are that you can't do this
    offline and if you end your subscription you lose your files. Also this does
-not work on an iPhone for example.
+   not work on an iPhone for example.
 
 There other methods have issues
 
-4. Use the docker image in src/container/jupyter this means that you have to
+1. Use the docker image in src/container/jupyter this means that you have to
    fiddle with the location of /var/data in the container, you can either have a
-shell script, assuming that it all done, you should be able to do a `make run`
-and it will work.
-5. Use the docker image in src/container/anaconda but this current has a bug in
+   shell script, assuming that it all done, you should be able to do a `make run`
+   and it will work.
+1. Use the docker image in src/container/anaconda but this current has a bug in
    it for startup of jupyter.
 
 ## Copying all the notebooks - Manual
@@ -78,17 +80,17 @@ don't learn anything, but if there
 
 ## Copying all content including videos with cloudera-dl
 
-https://github.com/coursera-dl/coursera-dl is a general purpose downloader.
+[Cousera-dl](https://github.com/coursera-dl/coursera-dl) is a general purpose downloader.
 
 The steps are:
 
 1. Figure out the name of the course which is buried in the URL
 
-`https://www.cloudera.org/learn/<CLASS_NAME>/home/welcome
+`https://www.cloudera.org/learn/<CLASS_NAME>/home/welcome`
 
-2. Then run the docker container
+1. Then run the docker container
 
-```
-`docker run --rm -it -v "$(pwd):/course" courseradl/courseadl -u <USER> -p \
+```bash
+docker run --rm -it -v "$(pwd):/course" courseradl/courseadl -u <USER> -p \
 <PASSWORD>  <CLASS_NAME1> <CLASS_NAME2> ...
 ```

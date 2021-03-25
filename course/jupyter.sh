@@ -15,7 +15,7 @@ trap 'exit $?' ERR
 OPTIND=1
 VERSION="${VERSION:-7}"
 export FLAGS="${FLAGS:-""}"
-while getopts "hdvr" opt; do
+while getopts "hdv" opt; do
 	case "$opt" in
 	h)
 		cat <<-EOF
@@ -33,9 +33,13 @@ while getopts "hdvr" opt; do
 		# add the -v which works for many commands
 		export FLAGS+=" -v "
 		;;
+	*)
+		echo "no -$opt" >&2
+		;;
 	esac
 done
 shift $((OPTIND - 1))
+# shellcheck disable=SC1090
 if [[ -e "$SCRIPT_DIR/include.sh" ]]; then source "$SCRIPT_DIR/include.sh"; fi
 
 # source lib-git.sh lib-mac.sh lib-install.sh

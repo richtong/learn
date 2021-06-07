@@ -53,7 +53,7 @@ You should insert this cell at the very top for courses 1-3 and then SHIFT-enter
 to run it, this should create a giant tarball. This works for Course 1, 2 and 5.
 Course 3 has no notebooks and Course 4 uses a different structure.
 
-```
+```bash
 """
 the following commands record the environment dependencies
 for the course, and packages all course assignments and

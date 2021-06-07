@@ -87,12 +87,12 @@ To run in an environment [venv](https://docs.python.org/3/library/venv.html) exp
 you create one with. Also note that you don't want to check in the venv as it
 can contain gigabytes of files, instead instantiate it with requirements.txt
 
-```
+```bash
 cd datascience
 # snapshot the environment and then comment out lines that don't matter
 pip freeze > requirements.txt
 # this is important you don't want to check it all in so make ignore it
-cat >> .gitignoe <<<"venv"
+cat >> .gitignore <<<"venv"
 # note we call the environment venv for simplicity
 # This adds about 12MB to the repo fyi
 python -m venv venv
@@ -111,9 +111,9 @@ At this point, you can do a series of pip installs and then you don't need
 requirements.txt at all, you can just put the whole thing in github. At this
 point, `pip freeze > requirements.txt` is more like documentation.
 
-Different versions of python with conda and docker (when the quick and dirty
-breaks)
+Different versions of python with conda and docker (when the quick and dirty breaks)
 --------------------------------------------------
+
 At this point, the next problem is different versions of python, you can solve
 this by installing Conda and then using it to manage things, but you still need
 to have a stable set of system utilities.

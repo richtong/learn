@@ -1,4 +1,4 @@
-homework for CS229
+# homework for CS229
 
 Note we do not include the token.mat for security reasons. It has the token for
 submitting homework
@@ -6,7 +6,7 @@ submitting homework
 These require that you install octave into the host system with, this is handled
 by the install.sh right now in ~rich/bin/install.sh
 
-```
+```bash
 brew cask install octave
 ```
 

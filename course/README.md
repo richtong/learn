@@ -10,7 +10,7 @@ Use of Git LFS
 There are large files in here. This assumes that we are putting into git lfs.
 Note that we track txt files because they are used in speech processing.
 
-```
+```bash
 git lfs track "*.mp4" "*.npy" "*.txt"
 ```
 

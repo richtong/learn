@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+
+[dev-packages]
+pre-commit = "*"
+isort = "*"
+seed-isort-config = "*"
+yamllint = "*"
+flake8 = "*"
+mypy = "*"
+bandit = "*"
+black = "*"
+pydocstyle = "*"
+pdoc3 = "*"
+build = "*"
+twine = "*"
+setuptools = "*"
+wheel = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

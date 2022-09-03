@@ -9,8 +9,10 @@ torchvision = "*"
 torchaudio = "*"
 transformers = "*"
 datasets = "*"
-jupyter = "*"
-jupyterlab = "*"
+cytoolz = "*"
+grpcio = ">=1.37.0"
+h5py = ">=3.6.0"
+numpy = ">=1.22.3"
 
 [dev-packages]
 pre-commit = "*"

@@ -4,8 +4,28 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+nbdime = "*"
 
 [dev-packages]
+bandit = "*"
+beautysh = "*"
+black = "*"
+build = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
+neovim = "*"
+pdoc3 = "*"
+pre-commit = "*"
+pydocstyle = "*"
+seed-isort-config = "*"
+setuptools = "*"
+twine = "*"
+wheel = "*"
+yamllint = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

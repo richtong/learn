@@ -19,7 +19,12 @@ PIP += "grpcio>=1.37.0" \
 	   "numpy>=1.22.3"
 
 # base tensorflow
-PIP += tensorflow-macos tensorflow-metal
+PIP += tensorflow-macos \
+	   tensorflow-metal
+
+## install: install tensorflow and jupyter
+.PHONY: install
+install: install-jupyter
 
 include ../../../../lib/include.jupyter.mk
 include ../../../../lib/include.python.mk

@@ -3,6 +3,62 @@
 Using the doughnut tutorials from YouTube for Blender 3.0 running on Blender 3.3
 for the Mac.
 
+## Preference setup: Emulate Number Pad and Multitouch Gesture for MacBooks
+
+Here are some convenient things to set. In Edit Preferences > Input > Emulate
+Numpad, let the regular 0-9 keys be the same as the Numpad keys.
+
+By default, the [Multitouch](https://developer.blender.org/T30746) so that the
+two finger scroll is:
+
+1. One finger just moves the cursor around
+1. Two finger move is a rotate event so the Viewport rotates around the cursor
+1. Shift with two finger move is a pan event back and forth. It is actually not
+   a full pan, but a pan that is actually around a center point.
+1. Pinch in and out gesture is a zoom in and out and is the same as CTRL or ALT with
+   two finger move.
+
+## Moving around Blender Viewport and the Pivot points
+
+One of the strangest things about blender is that in most applications, if you
+click and move the mouse, you move the "Pivot" point that is when you use the
+two finger move then you rotate around that point. This
+
+Blender does not work this way it has a hard pivot point which is set at the 3D
+cursor. There is an icon on the right with a hand which moves the View(port).
+You can also get this with a Shift key and then two fingers to move it. Two
+fingers in and out zoom.
+
+There are some other points that matter which is the origin of an mesh. That
+you can set for where the origin point of an object that is where it grows
+from. Normally the center of it. This is called the pivot.
+
+## Select Object different from Outline and click on it
+
+There does not seem to be a reliable way to select an object. Going to the
+outline view seems to select an object but you have to actually click it. If
+you select an object with the click, the G works as does SHIFT-G, but not if
+you select in Outline view
+
+## Moving objects
+
+The easiest thing is to use the G key or more properly choosing SHIFT-SPACE and
+then g, this will put you in move mode. The click and you You can then move the
+previously selected object and then click again to end the motion. Or ESC or
+right click to cancel the motion.
+
+If you just want to move up then type GZ and it will lock motion up and down.
+Same for GX and GY.
+
+If objects are far flung, select them on the object Outliner on the far right
+and select ALT-G to move the object to the center then G to move it to the
+right place. Note that if something is already at the origin then a Move G will
+move everything if Proportional Editing is on, then everything in the
+proportional circle will also move.
+
+Alternatively when you click on an object, you can look in its properties and
+manually change the X, Y and Z position.
+
 ## Blender notes Object and properties on the right
 
 There are many different command keys that you have to memorize and lots of
@@ -87,7 +143,7 @@ with 'F' and then  just moving the mouse will change the Radius of the Grab
 effect and SHIFT-F and then moving the mouse changes the strength. Then to
 actually make it work  it is click and move the mouse and.
 
-Smooth  is SHIFT-S and has the same 'F' and CTRL-F and it removes bumps.
+Smooth is SHIFT-S and has the same 'F' and CTRL-F and it removes bumps.
 
 'I' is inflate and if you turn on Airbrush with 'N' which opens up properties
 in the same window, and then there menus are vertical and look for brush, you
@@ -97,7 +153,7 @@ Stroke Method to Airbrush from the default. This basically expands a mesh so
 that it literally just gets bigger and inflates. This is one place where having
 a stylus and pen interface is great for measuring pen pressure.
 
-## Rendering the model with
+## Rendering the model with Render Image
 
 You can render the mesh with Render > Render Image, but you should first
 position the camera and the light. So CTRL-ALT-NUMPAD-0 if you have one, but if
@@ -123,12 +179,23 @@ Once you have the camera is the right place, then you can to the tools menu
 with 'N' and choose View and then View Lock > Camera to View Lock.
 
 To grab the light, just selection OPTION-G and it will move the light to the
-middle. Then hide the donut and move it. Note that moving things is select with
+middle. Then hide the doughnut and move it. Note that moving things is select with
 a click then hit G to move it.
+
+## Change the Camera to the Viewport
+
+To get the camera to the right position, then simplest way is to do a
+OPTION-COMMAND-NUMPAD-0 and this actually runs Object Mode / View / Align View
+/ Align Active Camera to View and it will make whatever your current Viewport
+the same as your active Camera.
+
+Once you are close, you can also make sure your Viewport is the same as the
+camera, so as you move the Camera moves as well. Use N to open up the viewport
+parameters and the View > Lock > Lock Camera to View to fine tune it.
 
 ## Change the light intensity and view port display
 
-Once the light is there, you can go to the properties and turn the wattage os
+Once the light is there, you can go to the properties and turn the wattage so
 it looks good.
 
 Also the size of the camera viewpoint is going to need to be adjusted, click on
@@ -136,14 +203,64 @@ the camera and then look in the properties and change the size of the
 viewport. Go to the Camera Properties > View Port Display > Size and change it
 from the default 1 meter.
 
-## Changing rendering engine parameters
+## Making Eevee more realistic and Flipping between Eevee and Cycles
 
-This is in the Properties windows in the left side where there is the back of a
-camera icon that is the Rendering Engine section. Workbench is the toy, but
-Eevee is a real-time rendering engine, Cycles takes longer and has grain it is
-a raytracer and more accurate.
+If you go to the Properties / Render, you can choose Cycles which is very
+realistic. If you do this it is slower and you need to enable GPU in Scene >
+Device > GPU Compute for it to really work. You can
 
-## Make sure you are using GPU acceleration
+Alternatively, you can make Eevee slower but more realistic by turning on:
 
-With a Mac, you are using Metal acceleration and you can see this in Edit >
-Preferenses > System
+1. Properties > Render Properties > Scene > Render Engine Eevee
+1. Properties > Render Properties > Shadows > Cube Size > 4096px this sets how
+   it handles light, the more pixels the better but slower
+1. Bloom you can turn on to show more glare from bright objects
+1. Screen Space Reflections to get more well reflected light
+
+Then in the light itself, when you select Eevee you get some more properties,
+in particular in Properties > Object Properties , select the Light / Shadow
+and lower the Bias to 0.010 this sets how far the shadows go.
+
+Overall, if you have fast enough machine, then Cycles is a nice choice rather
+than all this putzing about.
+
+As a trick, if you select at the upper right Viewport Shading > Material
+Preview and then in the Options turn on use Scene Lights and Scene World then
+this is the same view as Eevee, so that you have two buttons and can flip
+between Eevee in Material Preview and then next door neighbor which is Viewport
+Shading > Render.
+
+The default for Cycles is that is relatively course, it uses Monte Carlo
+simulation to pick the rays that it is tracing, so you get graininess. The
+default is Sampling > Viewport > Max Samples which is set to 1024. It is going
+to look grainy, but you can turn on Denoiser in Properties > Render Properties
+and then you can just use 100 samples and turn on denoising to make it much
+faster. You then leave the Sampling > Rendering at a high 4096 samples to get a
+nice image when you done.
+
+Note that on a MacBook, this is CPU based, so you want to set the Denoise Start
+Sample at say 48 so it isn't slow
+
+## Changing Material of a Mesh
+
+Go to the Object Properties and down at the bottom there is Material
+Properties. Choose New and you will get by default
+BSDF which is a Disney paper that make creating materials look very natural.
+Then choose Base Color and pick a nice pink. Then Roughness which sets the
+glossiness of the material. How nicely iced do you want
+
+When material actually is translucent you get scattering, so you want to add
+Subsurface and the values are in meters which in this case to 0.1 which sets
+the intensity of the scattering.
+Then, set how large the scattering is going to be with
+Subsurface Radius at 0.002 meters you can set it to the same for
+the three parameters which are for RGB as different materials may scatter
+differently. And then set the Subsurface color to a darker version of the
+original material. This makes sense it is going to go through and get darker.
+
+## Rendering and Image and Slots for remembering
+
+Because rendering takes some time, when you choose Render / Render Image, in
+the new window, there are slots, so you can keep old renders and not have to
+keep creating them. You set them and the next time you render, it goes into the
+last selected Slot.

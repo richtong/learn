@@ -264,3 +264,15 @@ Because rendering takes some time, when you choose Render / Render Image, in
 the new window, there are slots, so you can keep old renders and not have to
 keep creating them. You set them and the next time you render, it goes into the
 last selected Slot.
+
+## Using PureRef to drag and drop images from the Web
+
+One side note is that a DonateWare application
+[PureRef](https://www.pureref.com) is what most professionals use to store
+images.
+
+## Texturing a Material by Node Editing
+
+You can edit individual areas by going to Shading Mode and then removing the
+directory window on the left and the other one and you will have the Doughnut.
+You can remove the Icing with H and get it back with OPTION-H

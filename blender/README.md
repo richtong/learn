@@ -276,3 +276,64 @@ images.
 You can edit individual areas by going to Shading Mode and then removing the
 directory window on the left and the other one and you will have the Doughnut.
 You can remove the Icing with H and get it back with OPTION-H
+
+Nodes are really things that modify textures, so drop into the node editor as
+noted above. The node processing is left to right, so choose the lower Node
+Editor windows go to Add > Texture > Voronoi Texture and you will see a new
+property list appear and then you will see that you can connect Distance to the
+Base Color, so the Texture replaces the solid color that used to be there.
+
+So you put textures on meshes and with node editors, this remains separate and
+you can change it. Note that if you connected it to the Colors output then the
+texturing would work on colors instead of distances
+
+## Noise Texture and Color Ramp Pipeline Plus Color Coordinates
+
+So if you connect Noise Texture with the Factor output and then Add a Color
+ramp then you can modify the color and have it modify by the noise texture
+with Add > Converter > Color Ramp.
+
+Once you add the ramp, the first bar sets the range of colors that are blended
+from the right to the left. To set the left color click on it and then you will
+see the bar below it turn to that color. Click on the bar and you will get the
+color wheel. What is confusing here is that there are no color because the
+right slider is turned down to black, so drag tkkhat up and you get the
+conventional color wheel.
+
+Then to set the right color click there and it should be for instance black by
+default if you want the colors to go from the default white to the default
+black.
+
+Then because the texture is wrapped around the object with Generated
+coordinates, you fix this by Add > Input > Texture Coordinate and use the
+Object output to the Noise Texture vector. Note general the output colors and
+input colors should match as they are the type of the data being transferred.
+Note that when you add this, you need to scale up the noise to 150 or more from
+15.
+
+## Using the Node Wrangler to see one stages
+
+You can enable an add-on by going to the top window Edit > Preferences > Add-on
+and then searching for Node Wrangler, this adds some nice shortcuts. And now
+CTRL-SHIFT-CLICK on any node will just show you the output of that node.
+
+## Using a JPEG image as a Texture
+
+You can take any image and apply it to any mesh with Add > Texture > Image
+Texture, click on Open and this will let you browse for any image on your
+machine and apply it to the texture.
+
+## Using Noise to drive the Bumps for Normal Maps
+
+You can take the same noise texture and it drive Add > Vector > Bump and then
+connect that to the Color output of the Noise Texture to the Height input of
+the Bump Node. The Normal tells how the texture is applied
+to the mesh and it can deviate from the mesh for a more realistic appearance.
+And you take the Bump Normal and apply it to the Texture Normal input.
+
+Now change the bump distance to 2cm or 0.002
+
+## Tutorial 8. Texture painting
+
+To add a stripe to the side of the doughnut, you can just paint a texture that
+already exists. So find an image with Add > Image > Texture

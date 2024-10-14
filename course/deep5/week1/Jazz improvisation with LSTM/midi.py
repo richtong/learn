@@ -6,7 +6,6 @@ A script which converts MIDI files to WAV and optionally to MP3 using ffmpeg.
 Works by playing each file and using the stereo mix device to record at the same time
 """
 
-
 import pyaudio  # audio recording
 import wave  # file saving
 import pygame  # midi playback

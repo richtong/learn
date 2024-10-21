@@ -151,7 +151,6 @@ def update_parameters(parameters, grads, learning_rate):
 
 
 def compute_loss(a3, Y):
-
     """
     Implement the loss function
 

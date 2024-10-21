@@ -91,7 +91,6 @@ def initialize_parameters(layer_dims):
 
 
 def compute_cost(a3, Y):
-
     """
     Implement the cost function
 

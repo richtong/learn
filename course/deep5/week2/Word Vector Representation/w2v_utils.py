@@ -97,13 +97,9 @@ class SimilarityCallback:
         sim = np.zeros((vocab_size,))
         in_arr1 = np.zeros((1,))
         in_arr2 = np.zeros((1,))
-        in_arr1[
-            0,
-        ] = valid_word_idx
+        in_arr1[0,] = valid_word_idx
         for i in range(vocab_size):
-            in_arr2[
-                0,
-            ] = i
+            in_arr2[0,] = i
             out = validation_model.predict_on_batch([in_arr1, in_arr2])
             sim[i] = out
         return sim

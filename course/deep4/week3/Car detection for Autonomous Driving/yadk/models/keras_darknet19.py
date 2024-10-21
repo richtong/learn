@@ -1,4 +1,5 @@
 """Darknet19 Model Defined in Keras."""
+
 import functools
 from functools import partial
 
